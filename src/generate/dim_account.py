@@ -30,7 +30,7 @@ magic_names = [
 def dim_account():
     # Create account_id and account_name
     account_id = list(range(1, 11))
-    account_name = random.choices(magic_names, k=10)
+    account_name = magic_names
 
     # Randomly assign cities to accounts from the top 10 cities
     city = random.choices(top_10_cities, k=10)

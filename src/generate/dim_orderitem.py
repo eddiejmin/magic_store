@@ -9,12 +9,14 @@ def dim_orderitem(num_rows=10000):
     Create python script to create sales dataset the following conditions:
     - 10000 rows
     - Columns: 'data', 'store', 'item', 'quantity', 'price'
+    - 'order_id' column should be a unique identifier for each order
     - 'date' column should be a random date between 1/1/2023 and 12/31/2024
     - 'store_id' column should be a random integer between 1 and 10
     - 'item_id' column should be a random integer between 1 and 10
-    - 'account_id' column should be a random integer between 1 and 1000
+    - 'account_id' column should be a random integer between 1 and 11
     - 'quantity' column should be a random integer between 1 and 100
     - 'discount' column that is normally distributed with mean=20, std=5
+    - 'status' column that is randomly assigned 'shipped' or 'pending'
     - add seasonality by setting sales to be slightly higher during the summer and winter using a random multiplier between 0.8 and 1.2
     '''
 
@@ -24,24 +26,28 @@ def dim_orderitem(num_rows=10000):
     date_range = [start_date + timedelta(days=random.randint(0, (end_date - start_date).days)) for _ in range(num_rows)]
 
     # Generate random integers for store, item, quantity, and price
+    order_id = list(range(1000, num_rows + 1000)) 
     store_id = np.random.randint(1, 11, num_rows)
     item_id = np.random.randint(1, 11, num_rows)
-    account_id = np.random.randint(1, 100, num_rows)
+    account_id = np.random.randint(1, 11, num_rows)
     quantity = np.random.randint(1, 101, num_rows)
 
     # Generate random discount values using a normal distribution with mean=20, std=5
     discount = np.random.normal(20, 5, num_rows)
     discount = np.clip(discount, 1, 100)  # Ensuring that discount values are between 1 and 100
 
-   
+    status = np.random.choice(['Shipped', 'Pending'], num_rows, p=[0.9, 0.1])
+
     # Create the DataFrame
     df = pd.DataFrame({
+        'order_id': order_id,
         'date': date_range,
         'store_id': store_id,
         'item_id': item_id,
         'account_id': account_id,
         'quantity': quantity,
-        'discount': np.round(discount, 0)  # Rounding discount to nearest integer
+        'discount': np.round(discount, 0),  # Rounding discount to nearest integer
+        'status': status
     })
     
      # Adjust quantity for seasonality (increase during summer and winter)

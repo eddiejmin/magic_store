@@ -1,11 +1,11 @@
 store_id,store_name,store_city,is_online
-1,Store 1,San Jose,False
-2,Store 2,San Jose,False
-3,Store 3,Dallas,True
-4,Store 4,San Diego,False
-5,Store 5,San Diego,False
-6,Store 6,San Jose,True
-7,Store 7,Dallas,True
-8,Store 8,Houston,False
-9,Store 9,Chicago,False
+1,Store 1,Houston,True
+2,Store 2,San Diego,False
+3,Store 3,San Jose,True
+4,Store 4,Dallas,True
+5,Store 5,Dallas,True
+6,Store 6,San Jose,False
+7,Store 7,Philadelphia,False
+8,Store 8,San Antonio,False
+9,Store 9,Houston,False
 10,Store 10,San Diego,False
