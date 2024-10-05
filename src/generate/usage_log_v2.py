@@ -21,6 +21,7 @@ def generate_logging_data(num_rows=10000):
     - 'checkout' can only occur after 'cart'
     - 'confirmation' can only occur after 'checkout'
     - action should be ['view', 'click']
+    - page_load_time should be a normal distribution with mean=3.0 and std=1.0
     
     Args:
         num_rows (int): Number of rows to generate.
@@ -29,8 +30,8 @@ def generate_logging_data(num_rows=10000):
         pd.DataFrame: A DataFrame containing the logging data.
     """
 
-    user_id_range = (1, 300)
-    page_names = ['home', 'product', 'cart', 'checkout', 'confirmation']
+    user_id_range = (1, 2000)
+    page_names = ['Home', 'Product Catalog', 'Cart', 'Checkout', 'Confirmation']
     actions = ['view', 'click']
     start_date = datetime(2024, 1, 1)
     end_date = datetime(2024, 12, 31)
@@ -43,15 +44,15 @@ def generate_logging_data(num_rows=10000):
 
     # Helper to ensure proper sequence rules are followed for 'cart', 'checkout', and 'confirmation'
     def generate_page_sequence():
-        sequence = ['home']
+        sequence = ['Home']
         if random.random() < 0.35:  # 35% chance the user views a product
-            sequence.append('product')
+            sequence.append('Product Catalog')
             if random.random() < 0.2:  # 20% chance the user adds to cart
-                sequence.append('cart')
+                sequence.append('Cart')
                 if random.random() < 0.1:  # 10% chance the user proceeds to checkout
-                    sequence.append('checkout')
+                    sequence.append('Checkout')
                     if random.random() < 0.4:  # 40% chance the user reaches confirmation
-                        sequence.append('confirmation')
+                        sequence.append('Confirmation')
         return sequence
 
     # Initialize lists for data
@@ -60,6 +61,7 @@ def generate_logging_data(num_rows=10000):
     timestamps = []
     page_name_list = []
     actions_list = []
+    page_load_times = []
 
     # Generate dataset
     for _ in range(num_rows):
@@ -70,6 +72,7 @@ def generate_logging_data(num_rows=10000):
         page_name = random.choice(sequence)  # Page name based on the sequence
         page_name_list.append(page_name)
         actions_list.append(random.choice(actions))  # Random action
+        page_load_times.append(max(0.1, random.normalvariate(3.0, 1.0)))
 
     # Create DataFrame
     df = pd.DataFrame({
@@ -77,7 +80,8 @@ def generate_logging_data(num_rows=10000):
         'user_id': user_ids,
         'timestamp': timestamps,
         'page_name': page_name_list,
-        'action': actions_list
+        'action': actions_list, 
+        'page_load_times': page_load_times
     })
     # Optionally, save the DataFrame to a CSV file
     df.to_csv('data/usage_log.csv', index=False)
