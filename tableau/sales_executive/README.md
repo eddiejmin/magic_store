@@ -26,4 +26,4 @@ We want to use the available CRM and POS data to intelligently advice the execut
 - Hover over graphs to get precise metric numbers
 
 <b>Resources</b>
-- Faux data was created using python. Script can be found in the Magic Store [git](https://github.com/eddiejmin/magic_store/tree/main/src)
+- Faux data was created using python. Script can be found in the Magic Store [git](https://github.com/eddiejmin/magic_store/tree/main)
