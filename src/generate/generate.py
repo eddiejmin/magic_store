@@ -4,6 +4,7 @@ from .dim_store import dim_store
 from .dim_account import dim_account
 from .dim_user import dim_user
 from .usage_log_v2 import generate_logging_data
+from .transportation_lanes import generate_transportation_lanes
 
 def generate():
     # Generate the 'dim_orderitem' dataset
@@ -23,6 +24,9 @@ def generate():
 
     # Generate the 'usage_log' dataset
     generate_logging_data()
+
+    # Generate transportation lanes dataset
+    generate_transportation_lanes()
 
 # Run the pipeline
 if __name__ == '__main__':
