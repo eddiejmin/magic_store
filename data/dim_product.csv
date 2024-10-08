@@ -1,4 +1,4 @@
-item_id,item_name,list_price,cost,weight,category,sub_category,manufacturer,brand,sku
+product_id,product_name,list_price,cost,weight,category,sub_category,manufacturer,brand,sku
 1,Elder Wand,250.0,150.0,0.5,Wands,Core Wands,Ollivanders,Elder Series,WND001
 2,Invisibility Cloak,300.0,200.0,1.0,Apparel,Cloaks,Deathly Hallows Inc.,Stealth Wear,CLK002
 3,Resurrection Stone,150.0,100.0,0.2,Artifacts,Magical Stones,Deathly Hallows Inc.,Resurrection Line,ART003

@@ -1,26 +1,26 @@
 lane_id,origin,destination,cost_per_mile
-1,Chicago,Los Angeles,1.4380639780133253
-2,New York,Los Angeles,1.4075023599542664
-3,San Jose,New York,1.767340971397066
-4,Philadelphia,Chicago,1.293822315858817
-5,San Jose,Houston,1.4046571748095649
-6,San Antonio,Philadelphia,1.771219278049406
-7,Houston,San Antonio,1.7388930042123851
-8,San Jose,Los Angeles,1.8271423998394354
-9,Dallas,New York,1.7231203146016496
-10,Phoenix,Dallas,1.8284096714341003
-11,Philadelphia,Los Angeles,1.8225647315828917
-12,Los Angeles,Chicago,1.885977194177491
-13,Dallas,New York,1.2706272931661227
-14,Chicago,San Diego,1.4684046105559942
-15,Los Angeles,Phoenix,1.951740411057778
-16,Chicago,Dallas,1.4199671581262545
-17,San Antonio,Philadelphia,1.3525919763824374
-18,San Diego,Houston,1.6155602863581613
-19,Los Angeles,Chicago,1.8509493432921982
-20,Houston,Philadelphia,1.7590794176503382
-21,Los Angeles,New York,1.5578737041380513
-22,Los Angeles,San Antonio,1.4679691473400938
-23,Houston,Phoenix,1.052268660176186
-24,San Diego,San Antonio,1.0225832413078897
-25,New York,San Antonio,1.178175483982273
+1,Philadelphia,Phoenix,1.7391920802419691
+2,Houston,Los Angeles,1.8340859080049445
+3,San Diego,San Antonio,1.2178657365919432
+4,San Antonio,New York,1.4727152378033046
+5,Philadelphia,Chicago,1.6696708419853536
+6,Houston,Los Angeles,1.4045961676334053
+7,San Antonio,Chicago,1.560545420590971
+8,Chicago,Philadelphia,1.6945364650709447
+9,Chicago,San Antonio,1.229695711740069
+10,Dallas,San Diego,1.7490400989961385
+11,New York,San Diego,1.518660470586254
+12,Dallas,Chicago,1.5872206280750665
+13,San Diego,San Jose,1.6853563228939703
+14,San Jose,San Antonio,1.039773181548092
+15,San Antonio,Chicago,1.6741382207282582
+16,San Jose,San Diego,1.5197934825837995
+17,New York,Houston,1.0762773098410428
+18,San Antonio,Philadelphia,1.5519001350002095
+19,Dallas,Los Angeles,1.0247669100817114
+20,Chicago,San Antonio,1.2680920053421532
+21,San Antonio,New York,1.4016247992565896
+22,Los Angeles,New York,1.906404743821534
+23,Los Angeles,San Antonio,1.0611449211962625
+24,Chicago,San Antonio,1.5348264232851259
+25,San Jose,San Diego,1.1959961765995262

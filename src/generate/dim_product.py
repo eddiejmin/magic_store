@@ -20,8 +20,8 @@ def dim_product():
 
     # Create a dictionary with the data
     data = {
-        'item_id' : np.arange(1, 11),
-        'item_name': [
+        'product_id' : np.arange(1, 11),
+        'product_name': [
             'Elder Wand', 'Invisibility Cloak', 'Resurrection Stone',
             'Firebolt Broomstick', 'Polyjuice Potion', 'Time-Turner',
             'Marauder\'s Map', 'Felix Felicis', 'Deluminator', 'Pensieve'
