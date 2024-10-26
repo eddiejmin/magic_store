@@ -2,7 +2,10 @@ import numpy as np
 import pandas as pd
 import random
 
-def dim_quote(rows=10000):
+np.random.seed(0)
+regions = ['West', 'East', 'North', 'South']
+
+def dim_quote(rows=100000):
     '''
     Create a script to create a dimension table for sales quotes.
 
@@ -19,6 +22,7 @@ def dim_quote(rows=10000):
     - 'unit_price' will be created after referencing dim_product table since we want to utilize the 'list_price' column
     - 'margin' column is derived from a linear regression model with random noise
     - 'unit_price' column is derived from Margin of the product
+    - 'close_date' column should be random date after 'quote_date' and before 'quote_date' + 30 days
     '''
 
     # Create a dictionary with the data
@@ -27,9 +31,10 @@ def dim_quote(rows=10000):
         'quote_date': np.random.choice(pd.date_range(start='2024-01-01', end='2024-12-31'), rows),
         'account_id': np.random.randint(1, rows+1, rows),
         'sales_rep_id': np.random.randint(1, 11, rows),
-        'product_id': np.random.randint(1, 11, rows),
+        'product_id': np.random.randint(1, 12, rows),
         'quantity': np.random.pareto(a=3, size=rows) * 500,
-        'status': np.random.choice(['won', 'lost'], rows, p=[0.2, 0.8])
+        'status': np.random.choice(['won', 'lost'], rows, p=[0.2, 0.8]),
+        'region': np.random.choice(regions, rows)
     }
 
     # Create the DataFrame
@@ -37,6 +42,11 @@ def dim_quote(rows=10000):
 
     # Round the 'quantity' column to the nearest integer
     df['quantity'] = df['quantity'].round().astype(int)
+
+    # Create the 'close_date' column
+    df['close_date'] = df['quote_date'] + pd.to_timedelta(np.random.randint(1, 30, rows), unit='D')
+
+    df['days_to_close'] = (df['close_date'] - df['quote_date']).dt.days
 
     # Load the dim_product table
     dim_product = pd.read_csv('data/dim_product.csv')
@@ -52,6 +62,36 @@ def dim_quote(rows=10000):
 
     # Create the 'margin' column using custom function
     df['margin'] = df.groupby('product_id')['quantity'].transform(margin)
+
+    # Set price to be slightly lower if status is 'won'
+    win_bias = np.random.normal(5, 5, 1).item() # Randomly select a value from the normal distribution with mean 10 and std 5
+    win_adjustment = np.log1p(df['quantity']) * 0.1 +  win_bias # Create an adjustment based on the quantity - this should be a positive number
+    df.loc[df['status'] == 'won', 'margin'] = df['margin'] - win_adjustment
+
+    days_to_close_adjustment = np.log1p(df['days_to_close']) * 10 # Create an adjustment based on the days to close - this should be a positive number
+    df['margin'] = df['margin'] - days_to_close_adjustment
+
+    # Add positive adjustment since data is skewed towards zero
+    df['margin'] = df['margin'] + 30
+
+
+      # Define fixed region biases for each region
+    region_bias_map = dict({
+        'West': np.random.uniform(10, 15),
+        'East': np.random.uniform(5, 10),
+        'North': np.random.uniform(-5, 0),
+        'South': np.random.uniform(-10, -5)
+    })
+
+    # Apply the region bias to the dataframe
+    df['region_bias'] = df['region'].map(region_bias_map)
+
+    # Add the region bias to the margin
+    df['margin'] = df['margin'] + df['region_bias']
+    
+    # Cap margin at 0 and 100
+    df.loc[df['margin'] < 0, 'margin'] = 0
+    df.loc[df['margin'] > 100, 'margin'] = 100
     
     # Create the 'unit_price' column
     df['unit_price'] = df['list_price'] * (df['margin'] / 100)

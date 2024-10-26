@@ -20,34 +20,34 @@ def dim_product():
 
     # Create a dictionary with the data
     data = {
-        'product_id' : np.arange(1, 11),
+        'product_id' : np.arange(1, 12),
         'product_name': [
             'Elder Wand', 'Invisibility Cloak', 'Resurrection Stone',
             'Firebolt Broomstick', 'Polyjuice Potion', 'Time-Turner',
-            'Marauder\'s Map', 'Felix Felicis', 'Deluminator', 'Pensieve'
+            'Marauder\'s Map', 'Felix Felicis', 'Deluminator', 'Pensieve', 'Pensieve 2.0'
         ],
-        'list_price': [250.00, 300.00, 150.00, 200.00, 50.00, 500.00, 100.00, 75.00, 120.00, 220.00],
-        'cost': [150.00, 200.00, 100.00, 120.00, 30.00, 350.00, 60.00, 40.00, 70.00, 140.00],
-        'weight': [0.5, 1.0, 0.2, 2.5, 0.5, 0.8, 0.3, 0.1, 0.4, 1.2],
+        'list_price': [250.00, 300.00, 150.00, 200.00, 50.00, 500.00, 100.00, 75.00, 120.00, 220.00, 220.00],
+        'cost': [150.00, 200.00, 100.00, 120.00, 30.00, 350.00, 60.00, 40.00, 70.00, 140.00, 140.00],
+        'weight': [0.5, 1.0, 0.2, 2.5, 0.5, 0.8, 0.3, 0.1, 0.4, 1.2, 1.2],
         'category': [
             'Wands', 'Apparel', 'Artifacts', 'Transportation', 'Potions',
-            'Artifacts', 'Accessories', 'Potions', 'Accessories', 'Artifacts'
+            'Artifacts', 'Accessories', 'Potions', 'Accessories', 'Artifacts', 'Artifacts'
         ],
         'sub_category': [
             'Core Wands', 'Cloaks', 'Magical Stones', 'Broomsticks', 'Transformative Potions',
-            'Time Manipulation', 'Maps', 'Luck Potions', 'Light Manipulation', 'Memory Devices'
+            'Time Manipulation', 'Maps', 'Luck Potions', 'Light Manipulation', 'Memory Devices', 'Memory Devices'
         ],
         'manufacturer': [
             'Ollivanders', 'Deathly Hallows Inc.', 'Deathly Hallows Inc.',
             'Nimbus Racing Brooms', 'Moste Potente Potions Co.', 'Ministry of Magic',
-            'Weasleys\' Wizard Wheezes', 'Slug & Jiggers Apothecary', 'Dumbledore Labs', 'Ministry of Magic'
+            'Weasleys\' Wizard Wheezes', 'Slug & Jiggers Apothecary', 'Dumbledore Labs', 'Ministry of Magic', 'Ministry of Magic'
         ],
         'brand': [
             'Elder Series', 'Stealth Wear', 'Resurrection Line', 'Firebolt Series',
-            'Polyjuice Brand', 'Time-Turner Series', 'Marauder\'s Collection', 'Felix Brand', 'Deluminator Series', 'Pensieve Collection'
+            'Polyjuice Brand', 'Time-Turner Series', 'Marauder\'s Collection', 'Felix Brand', 'Deluminator Series', 'Pensieve Collection', 'Pensieve Collection'
         ],
         'sku': [
-            'WND001', 'CLK002', 'ART003', 'BRM004', 'PTN005', 'ART006', 'ACC007', 'PTN008', 'ACC009', 'ART010'
+            'WND001', 'CLK002', 'ART003', 'BRM004', 'PTN005', 'ART006', 'ACC007', 'PTN008', 'ACC009', 'ART010', 'ART011'
         ]
     }
 

@@ -9,3 +9,4 @@ product_id,product_name,list_price,cost,weight,category,sub_category,manufacture
 8,Felix Felicis,75.0,40.0,0.1,Potions,Luck Potions,Slug & Jiggers Apothecary,Felix Brand,PTN008
 9,Deluminator,120.0,70.0,0.4,Accessories,Light Manipulation,Dumbledore Labs,Deluminator Series,ACC009
 10,Pensieve,220.0,140.0,1.2,Artifacts,Memory Devices,Ministry of Magic,Pensieve Collection,ART010
+11,Pensieve 2.0,220.0,140.0,1.2,Artifacts,Memory Devices,Ministry of Magic,Pensieve Collection,ART011
